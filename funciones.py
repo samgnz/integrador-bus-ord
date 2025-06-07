@@ -7,3 +7,16 @@ def bubble_sort(estudiantes, clave, descendente=False):
             if (a < b and descendente) or (a > b and not descendente):
                 estudiantes[j], estudiantes[j + 1] = estudiantes[j + 1], estudiantes[j]
 
+def menu_principal():
+    print("\nBienvenido/a a nuestro sistema de notas de la Universidad Tecnológica Nacional")
+    print("Elija una de las opciones del menú.")
+    print("1. Ver lista de estudiantes")
+    print("2. Agregar estudiante")
+    print("3. Eliminar estudiante")
+    print("4. Buscar un estudiante por apellido")
+    print("5. Buscar nota")
+    print("6. Ordenar lista")
+    print("6.1. Ordenar por nota (mayor a menor)")
+    print("6.2. Ordenar por apellido (A-Z)")
+    print("6.3. Ordenar por nombre (A-Z)")
+    print("7. Salir")

@@ -1,9 +1,11 @@
 # Llamamos a nuestra función bubble sort
-from funciones import bubble_sort
+from funciones import (
+    bubble_sort,
+    menu_principal,
+)
 import copy  # Para hacer copias independientes de la lista
 
 #Armamos nuestra lista de estudiantes (cada uno es un diccionario)
-
 estudiantes = [
     {"nombre": "Erika", "apellido": "Gonzalez", "nota": 9},
     {"nombre": "Karen", "apellido": "Guardia", "nota": 8},
@@ -16,14 +18,9 @@ por_nota = copy.deepcopy(estudiantes)
 por_nombre = copy.deepcopy(estudiantes)
 por_apellido = copy.deepcopy(estudiantes)
 
-#Usamos la función importada de bubble sort
-#Ordenamos por nota de mayor a menor
+#Usamos la función importada de bubble sort para ordenar por nota, apellido y nombre
 bubble_sort(por_nota, "nota", descendente=True)
-
-#Ordenamos por apellido de A a Z
 bubble_sort(por_apellido, "apellido")
-
-#Ordenamos por nombre de A a Z
 bubble_sort(por_nombre, "nombre")
 
 #Printeamos el resultado
