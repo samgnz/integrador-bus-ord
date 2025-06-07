@@ -1,11 +1,5 @@
-# Llamamos a nuestra función bubble sort
-from funciones import (
-    bubble_sort,
-    busqueda_binaria,
-    menu_principal,
-)
-
-import copy  # Para hacer copias independientes de la lista
+from funciones import bubble_sort, busqueda_binaria, menu_principal
+import copy
 
 #Armamos nuestra lista de estudiantes (cada uno es un diccionario)
 estudiantes = [
@@ -24,9 +18,6 @@ por_apellido = copy.deepcopy(estudiantes)
 bubble_sort(por_nota, "nota", descendente=True)
 bubble_sort(por_apellido, "apellido")
 bubble_sort(por_nombre, "nombre")
-
-#Buscamos por apellido
-busqueda_binaria(estudiantes, "Gonzalez")
 
 #Printeamos el resultado
 #Mostramos el orden por nota (de mayor a menor)
@@ -49,8 +40,4 @@ for estudiante in por_nombre:
     print(f"{estudiante['nombre']} {estudiante['apellido']} - Nota: {estudiante['nota']}")
 
 print("------------")
-
-#Mostramos la busqueda
-print(busqueda_binaria)
-
     
