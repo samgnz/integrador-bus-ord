@@ -1,15 +1,12 @@
-from funciones import (
-    bubble_sort,
-    menu_principal,
-)
-import copy  # Para hacer copias independientes de la lista
+from funciones import bubble_sort, busqueda_binaria, menu_principal
+import copy
 
 #Armamos nuestra lista de estudiantes (cada uno es un diccionario)
 estudiantes = [
     {"nombre": "Erika", "apellido": "Gonzalez", "nota": 9},
-    {"nombre": "Karen", "apellido": "Guardia", "nota": 8},
-    {"nombre": "Agustina", "apellido": "Grille", "nota": 7.5},
     {"nombre": "Nicolas", "apellido": "Gonzalez", "nota": 8.5},
+    {"nombre": "Agustina", "apellido": "Grille", "nota": 7.5},
+    {"nombre": "Karen", "apellido": "Guardia", "nota": 8}
 ]
 
 #Hacemos las copias independientes de la lista para que los ordenamientos no se afecten entre ellos.
@@ -21,14 +18,6 @@ por_apellido = copy.deepcopy(estudiantes)
 bubble_sort(por_nota, "nota", descendente=True)
 bubble_sort(por_apellido, "apellido")
 bubble_sort(por_nombre, "nombre")
-
-#Ordenar por nombre:
-def bubble_sort_nombre(estudiantes):
-    n = len(estudiantes)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if estudiantes[j]["nombre"] > estudiantes[j + 1]["nombre"]:
-                estudiantes[j], estudiantes[j + 1] = estudiantes[j + 1], estudiantes[j]
 
 #Printeamos el resultado
 #Mostramos el orden por nota (de mayor a menor)
@@ -51,3 +40,5 @@ for estudiante in por_nombre:
     print(f"{estudiante['nombre']} {estudiante['apellido']} - Nota: {estudiante['nota']}")
 
 print("------------")
+
+menu_principal()
