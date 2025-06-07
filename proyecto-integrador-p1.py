@@ -1,12 +1,12 @@
-nombres = ["Erika", "Karen", "Agustina", "Nicolás"]
-apellidos = ["Gonzalez", "Guardia", "Grille", "Gonzalez"]
-notas = [9, 8, 7.5, 8.5]
+# Armamos nuestra lista de estudiantes (cada uno es un diccionario)
 
 estudiantes = [
-    ["Erika", "Gonzalez", 9],
-    ["Karen", "Guardia", 8],
-    ["Agustina", "Grille", 7.5],
-    ["Nicolás", "Gonzalez", 8.5]
+    {"nombre": "Erika", "apellido": "Gonzalez", "nota": 9},
+    {"nombre": "Karen", "apellido": "Guardia", "nota": 8},
+    {"nombre": "Agustina", "apellido": "Grille", "nota": 7.5},
+    {"nombre": "Nicolas", "apellido": "Gonzalez", "nota": 8.5},
 ]
 
-print(estudiantes[0][0], estudiantes[0][1], estudiantes[0][2]) 
+
+# for estudiante in estudiantes:
+#      print(f"{estudiante['nombre']} {estudiante['apellido']} - Nota: {estudiante['nota']}")
