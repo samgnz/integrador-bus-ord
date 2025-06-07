@@ -11,7 +11,9 @@ estudiantes = [
 #for estudiante in estudiantes:
 #   print(f"{estudiante['nombre']} {estudiante['apellido']} - Nota: {estudiante['nota']}")
 
-#Usamos Bubble Sort para ordenar por nota
+#Usamos Bubble sort para:
+
+#Ordenar por nota
 def bubble_sort_nota(estudiantes): #Definimos la función bubble_sort_nota y su parámetro: estudiantes
     n = len(estudiantes) #En la variable n guardamos la cantidad total de estudiantes en la lista, lo usamos para controlar los ciclos for de nuestro algoritmo.
     for i in range(n): #Este bucle for es externo: se repite n veces. Es parte del algoritmo de Bubble Sort y va "burbujando" el valor más alot hacia el final de la lista en cada pasada.
@@ -19,7 +21,7 @@ def bubble_sort_nota(estudiantes): #Definimos la función bubble_sort_nota y su 
             if estudiantes[j]["nota"] < estudiantes[j + 1]["nota"]: #Este if compara la nota del estudiante en la posición j con la del siguiente (j + 1). Si la nota de j es menor, los intercambia. Esto significa que los mayores van "subiendo" primero: es un orden de mayor a menor. El signo > Ordena de menor a mayor y el signo < Ordena de mayor a menor
                 estudiantes[j], estudiantes[j + 1] = estudiantes[j + 1], estudiantes[j] #Si la condición anterior se cumple, intercambia las posiciones de los dos estudiantes en la lista.
 
-#Usamos Bubble Sort para también ordenar por apellido
+#Ordenar por apellido
 def bubble_sort_apellido(estudiantes):
     n = len(estudiantes)
     for i in range(n):
@@ -27,7 +29,7 @@ def bubble_sort_apellido(estudiantes):
             if estudiantes[j]["apellido"] > estudiantes[j + 1]["apellido"]:
                 estudiantes[j], estudiantes[j + 1] = estudiantes[j + 1], estudiantes[j]
 
-#Y finalmente para ordenamiento, usamos Bubble Sort para ordenar por nombre también:
+#Ordenar por nombre:
 def bubble_sort_nombre(estudiantes):
     n = len(estudiantes)
     for i in range(n):
