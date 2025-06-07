@@ -2,7 +2,6 @@
 from funciones import (
     bubble_sort,
     busqueda_binaria,
-    menu_principal,
 )
 
 import copy  # Para hacer copias independientes de la lista
