@@ -33,19 +33,22 @@ def eliminar_estudiante():
 #Búsqueda binaria por apellido (requiere la lista ordenada por apellido) -- usar busqueda binaria es la mas eficiente en listas ordenadas
 def busqueda_binaria(lista_estudiantes, apellido):
     izquierda = 0
-    derecha = len(lista_estudiantes) -1
+    derecha = len(lista_estudiantes) - 1
 
     while izquierda <= derecha:
-        medio = (izquierda + derecha)//2
+        medio = (izquierda + derecha) // 2
         apellido_medio = lista_estudiantes[medio]["apellido"]
 
-    if apellido_medio == apellido:
-        return medio
-    elif apellido_medio < apellido:
-        izquierda = medio + 1
-    else:
-        derecha = medio - 1
-    return -1
+        if apellido_medio == apellido:
+            print(f"Estudiante encontrado: {lista_estudiantes[medio]}")
+            return
+        elif apellido_medio < apellido:
+            izquierda = medio + 1
+        else:
+            derecha = medio - 1
+    
+    print(f"El apellido '{apellido}' no fue encontrado")
+
 
 #Funcion para busqueda lineal - puede ser por nota o por nombre
 def busqueda_lineal():
@@ -63,3 +66,15 @@ def bubble_sort(lista_estudiantes, clave, descendente=False):
                 lista_estudiantes[j], lista_estudiantes[j + 1] = lista_estudiantes[j + 1], lista_estudiantes[j]
     for estudiante in lista_estudiantes:
         print(f"{estudiante['nombre']}: {estudiante[clave]}")
+
+#Funcion promedio total
+def promedio_total():
+    print(1)
+
+#Funcion alumnos desaprobados
+def alumnos_desaprobados():
+    print(2)
+
+#Funcion alumnos aprobados
+def alumnos_aprobados():
+    print(3)

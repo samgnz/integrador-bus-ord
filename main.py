@@ -3,7 +3,7 @@ from funciones import *
 #Armamos nuestra lista de estudiantes (cada uno es un diccionario)
 lista_estudiantes = [
     {"nombre": "Erika", "apellido": "Gonzalez", "nota": 9},
-    {"nombre": "Nicolas", "apellido": "Gonzalez", "nota": 8.5},
+    {"nombre": "Nicolas", "apellido": "Grande", "nota": 8.5},
     {"nombre": "Agustina", "apellido": "Grille", "nota": 7.5},
     {"nombre": "Karen", "apellido": "Guardia", "nota": 8}
 ]
@@ -19,11 +19,12 @@ def main():
             agregar_estudiante()
         elif opcion == 3:
             eliminar_estudiante()
-        elif opcion == 4:
-            busqueda_binaria()
+        elif opcion == 4: #hecho ✔️
+            apellido = input("Ingrese el apellido a buscar: ")
+            busqueda_binaria(lista_estudiantes, apellido)
         elif opcion == 5:
             busqueda_lineal()
-        elif opcion == 6:
+        elif opcion == 6: #hecho ✔️
             print("Elija una de las opciones del menú.")
             print("1. Ordenar por nota (mayor a menor)")
             print("2. Ordenar por nombre (A-Z)")
@@ -46,7 +47,7 @@ def main():
             elif subopcion == 2:
                 alumnos_desaprobados()
             elif subopcion == 3:
-                alumnos_aprobado()
+                alumnos_aprobados()
             else:
                 print("Ingrese una opcion válida")
         elif opcion == 8:
