@@ -16,16 +16,36 @@ def menu_principal():
 
 
 #Función para agregar estudiante
+def proceso_agregar(lista_estudiantes):
+    nuevo_estudiante = agregar_estudiante(lista_estudiantes)
+    lista_actualizada = ordenamiento_insercion(lista_estudiantes)
+    for estudiante in lista_actualizada:
+        return estudiante
+
+
 def agregar_estudiante(lista_estudiantes):
     nombre = input("Ingrese el nombre del estudiante: ")
     apellido = input("Ingrese el apellido del estudiante: ")
     nota = float(input("Ingrese la nota: "))
-    estudiante = {f"nombre: {nombre} /n Apellido {apellido} /n Nota {nota}"}
+    estudiante = {"nombre": nombre, "apellido": apellido, "nota": nota}
     lista_estudiantes.append(estudiante)
-# falta agregar el algoritmo insert sort
+
+def ordenamiento_insercion(lista_estudiantes):
+    for j in range(1, len(lista_estudiantes)):
+        key = lista_estudiantes[j]
+        i = j - 1
+        
+        while i >= 0 and lista_estudiantes[i]["apellido"] > key["apellido"]:
+            lista_estudiantes[i + 1] = lista_estudiantes[i]
+            i = i - 1
+        
+        lista_estudiantes[i + 1] = key
+    
+    return lista_estudiantes
 
 
-#Funcion para eliminar estudiante
+
+#_estudiantesFuncion para eliminar estudiante
 def eliminar_estudiante():
     #algoritmo insert sort
     return 1
@@ -51,9 +71,24 @@ def busqueda_binaria(lista_estudiantes, apellido):
 
 
 #Funcion para busqueda lineal - puede ser por nota o por nombre
-def busqueda_lineal():
-    #algoritmo busqueda lineal
-    return 2
+def busqueda_lineal(lista_estudiantes, nota):
+    estudiantes = []
+
+    for estudiante in lista_estudiantes:
+        if estudiante["nota"] == nota:
+            estudiantes.append({
+                "nombre": estudiante["nombre"],
+                "apellido": estudiante["apellido"],
+                "nota": estudiante["nota"],
+        })
+            
+    if estudiantes:
+        for e in estudiantes:
+            print(f'{e["nombre"]} {e["apellido"]} - Nota: {e["nota"]}')
+    else:
+        print("No se encontraron estudiantes con esa nota.")
+    
+    return estudiantes
 
 #Funcion para ordenar por burbuja - puede ser nota o nombre - por apellido la lista ya esta ordenada por defecto
 def bubble_sort(lista_estudiantes, clave, descendente=False):
@@ -68,13 +103,34 @@ def bubble_sort(lista_estudiantes, clave, descendente=False):
         print(f"{estudiante['nombre']}: {estudiante[clave]}")
 
 #Funcion promedio total
-def promedio_total():
-    print(1)
+def promedio_total(lista_estudiantes):
+    suma_notas = 0
+    for estudiante in lista_estudiantes:
+        suma_notas += estudiante["nota"]
 
-#Funcion alumnos desaprobados
-def alumnos_desaprobados():
-    print(2)
+    promedio = suma_notas / len(lista_estudiantes)
 
-#Funcion alumnos aprobados
-def alumnos_aprobados():
-    print(3)
+    return promedio
+
+#Funcion clasificacion alumnos
+def clasificacion_alumnos(lista_estudiantes, estado):
+    resultados = []
+    
+    for estudiante in lista_estudiantes:
+        if estado == "aprobados" and estudiante["nota"] >= 6:
+            resultados.append({
+                "nombre": estudiante["nombre"],
+                "apellido": estudiante["apellido"],
+                "nota": estudiante["nota"],
+        })
+        elif estado == "desaprobados" and estudiante["nota"] < 6:
+            resultados.append({
+                "nombre": estudiante["nombre"],
+                "apellido": estudiante["apellido"],
+                "nota": estudiante["nota"],
+        })
+    
+    for r in resultados:
+        print(f'{r["nombre"]} {r["apellido"]} - Nota: {r["nota"]}')
+    
+    return resultados
