@@ -8,42 +8,35 @@ def menu_principal():
     print("4. Buscar un estudiante por apellido")
     print("5. Buscar nota")
     print("6. Ordenar lista")
-    print("7. Mostrar estadísticas:")
-    print("    1. Promedio total")
-    print("    2. Alumnos desaprobados")
-    print("    3. Alumnos aprobados")
-    print("8. Salir")
+    print("7. Mostrar estadísticas")
+    print("8. Salir\n")
 
 
 #Función para agregar estudiante
-def proceso_agregar(lista_estudiantes):
-    nuevo_estudiante = agregar_estudiante(lista_estudiantes)
-    lista_actualizada = ordenamiento_insercion(lista_estudiantes)
-    for estudiante in lista_actualizada:
-        return estudiante
-
-
 def agregar_estudiante(lista_estudiantes):
+    nuevo_estudiante = crear_estudiante()
+    ordenamiento_insercion(lista_estudiantes, nuevo_estudiante)
+
+
+def crear_estudiante():
     nombre = input("Ingrese el nombre del estudiante: ")
     apellido = input("Ingrese el apellido del estudiante: ")
     nota = float(input("Ingrese la nota: "))
     estudiante = {"nombre": nombre, "apellido": apellido, "nota": nota}
-    lista_estudiantes.append(estudiante)
+    return estudiante
 
-def ordenamiento_insercion(lista_estudiantes):
-    for j in range(1, len(lista_estudiantes)):
-        key = lista_estudiantes[j]
-        i = j - 1
+def ordenamiento_insercion(lista_estudiantes, nuevo_estudiante):
+    apellido_nuevo_estudiante = nuevo_estudiante['apellido']
+
+    for indice in range(len(lista_estudiantes)):
+        apellido_estudiante_actual = lista_estudiantes[indice]['apellido']
+
+        if apellido_estudiante_actual.lower() > apellido_nuevo_estudiante.lower():
+            lista_estudiantes.insert(indice,nuevo_estudiante)
+            break
         
-        while i >= 0 and lista_estudiantes[i]["apellido"] > key["apellido"]:
-            lista_estudiantes[i + 1] = lista_estudiantes[i]
-            i = i - 1
-        
-        lista_estudiantes[i + 1] = key
-    
-    return lista_estudiantes
-
-
+        if indice == len(lista_estudiantes) - 1:
+            lista_estudiantes.append(nuevo_estudiante)
 
 #_estudiantesFuncion para eliminar estudiante
 def eliminar_estudiante():

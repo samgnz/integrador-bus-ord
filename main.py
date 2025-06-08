@@ -16,19 +16,21 @@ def main():
         if opcion == 1:
             print(lista_estudiantes)
         elif opcion == 2:
-            proceso_agregar(lista_estudiantes)
+            agregar_estudiante(lista_estudiantes)
+            print("\nLista actualizada:")
+            print(lista_estudiantes)
         elif opcion == 3: #falta🔲
             eliminar_estudiante()
-        elif opcion == 4: #hecho ✔️
+        elif opcion == 4:
             apellido = input("Ingrese el apellido a buscar: ")
             busqueda_binaria(lista_estudiantes, apellido)
-        elif opcion == 5: #hecho ✔️
+        elif opcion == 5:
             nota = int(input("Ingrese la nota a buscar: "))
             busqueda_lineal(lista_estudiantes, nota)
-        elif opcion == 6: #hecho ✔️
+        elif opcion == 6:
             print("Elija una de las opciones del menú.")
-            print("1. Ordenar por nota (mayor a menor)") #hecho ✔️
-            print("2. Ordenar por nombre (A-Z)") #hecho ✔️
+            print("1. Ordenar por nota (mayor a menor)")
+            print("2. Ordenar por nombre (A-Z)")
             subopcion = int(input("Ingrese la opcion a trabajar: "))
             if subopcion == 1:
                 print("Lista de estudiantes ordenado por notas (de mayor a menor)\n")
@@ -37,11 +39,11 @@ def main():
                 bubble_sort(lista_estudiantes, "nombre")
             else:
                 print("Ingrese una opcion válida")
-        elif opcion == 7: #hecho ✔️
+        elif opcion == 7:
             print("Elija una de las opciones del menú.")
-            print("1. Promedio total") #hecho ✔️
-            print("2. Alumnos desaprobados") #hecho ✔️
-            print("3. Alumnos aprobados") #hecho ✔️
+            print("1. Promedio total")
+            print("2. Alumnos desaprobados")
+            print("3. Alumnos aprobados")
             subopcion = int(input("Ingrese la opcion a trabajar: "))
             if subopcion == 1:
                 print("La nota promedio es", promedio_total(lista_estudiantes))
