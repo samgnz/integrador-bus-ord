@@ -1,30 +1,61 @@
-from funciones import bubble_sort, busqueda_binaria, menu_principal
-import copy
+from funciones import *
 
 #Armamos nuestra lista de estudiantes (cada uno es un diccionario)
 lista_estudiantes = [
     {"nombre": "Erika", "apellido": "Gonzalez", "nota": 9},
-    {"nombre": "Karen", "apellido": "Guardia", "nota": 8},
-    {"nombre": "Agustina", "apellido": "Grille", "nota": 7.5},
     {"nombre": "Nicolas", "apellido": "Gonzalez", "nota": 8.5},
+    {"nombre": "Agustina", "apellido": "Grille", "nota": 7.5},
+    {"nombre": "Karen", "apellido": "Guardia", "nota": 8}
 ]
 
-#Hacemos las copias independientes de la lista para que los ordenamientos no se afecten entre ellos.
-por_nota = copy.deepcopy(lista_estudiantes)
-por_nombre = copy.deepcopy(lista_estudiantes)
-por_apellido = copy.deepcopy(lista_estudiantes)
+def main():
+    while True:
+        menu_principal()
+        opcion = int(input("Ingrese la opcion a trabajar: "))
 
-#Usamos la función importada de bubble sort para ordenar por nota, apellido y nombre
-bubble_sort(por_nota, "nota", descendente=True)
-bubble_sort(por_apellido, "apellido")
-bubble_sort(por_nombre, "nombre")
+        if opcion == 1:
+            print(lista_estudiantes)
+        elif opcion == 2:
+            agregar_estudiante()
+        elif opcion == 3:
+            eliminar_estudiante()
+        elif opcion == 4:
+            busqueda_binaria()
+        elif opcion == 5:
+            busqueda_lineal()
+        elif opcion == 6:
+            print("Elija una de las opciones del menú.")
+            print("1. Ordenar por nota (mayor a menor)")
+            print("2. Ordenar por nombre (A-Z)")
+            subopcion = int(input("Ingrese la opcion a trabajar: "))
+            if subopcion == 1:
+                print("Lista de estudiantes ordenado por notas (de mayor a menor)\n")
+                bubble_sort(lista_estudiantes, "nota", descendente=True)
+            elif subopcion == 2:
+                bubble_sort(lista_estudiantes, "nombre")
+            else:
+                print("Ingrese una opcion válida")
+        elif opcion == 7:
+            print("Elija una de las opciones del menú.")
+            print("1. Promedio total")
+            print("2. Alumnos desaprobados")
+            print("3. Alumnos aprobados")
+            subopcion = int(input("Ingrese la opcion a trabajar: "))
+            if subopcion == 1:
+                promedio_total()
+            elif subopcion == 2:
+                alumnos_desaprobados()
+            elif subopcion == 3:
+                alumnos_aprobado()
+            else:
+                print("Ingrese una opcion válida")
+        elif opcion == 8:
+            print("Cerrando programa")
+            break
+        else:
+            print("Ingrese una opcion válida")
 
-while True:
-    menu_principal()
-    opcion = int(input("\nSeleccione una opción: "))
 
-    if opcion == 1:
-        for estudiante in por_apellido:
-            print(f"{estudiante['nombre']} {estudiante['apellido']} - Nota: {estudiante['nota']}")
-    elif opcion == 2:
-        
+
+#ejecucion programa principal
+main()
