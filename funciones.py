@@ -11,6 +11,9 @@ def menu_principal():
     print("7. Mostrar estadísticas")
     print("8. Salir\n")
 
+def listar_estudiantes(lista_estudiantes):
+    for estudiante in lista_estudiantes:
+        print(f"{estudiante['nombre']} {estudiante['apellido']} - Nota: {estudiante['nota']}")
 
 #Función para agregar estudiante
 def agregar_estudiante(lista_estudiantes):
@@ -19,30 +22,30 @@ def agregar_estudiante(lista_estudiantes):
 
 
 def crear_estudiante():
-    nombre = input("Ingrese el nombre del estudiante: ")
+    nombre = input("\nIngrese el nombre del estudiante: ")
     apellido = input("Ingrese el apellido del estudiante: ")
     nota = float(input("Ingrese la nota: "))
     estudiante = {"nombre": nombre, "apellido": apellido, "nota": nota}
     return estudiante
 
-def ordenamiento_insercion(lista_estudiantes):
-    for j in range(1, len(lista_estudiantes)):
-        key = lista_estudiantes[j]
-        i = j - 1
+def ordenamiento_insercion(lista_estudiantes, nuevo_estudiante):
+    apellido_nuevo_estudiante = nuevo_estudiante['apellido']
+
+    for indice in range(len(lista_estudiantes)):
+        apellido_estudiante_actual = lista_estudiantes[indice]['apellido']
+
+        if apellido_estudiante_actual.lower() > apellido_nuevo_estudiante.lower():
+            lista_estudiantes.insert(indice,nuevo_estudiante)
+            break
         
-        while i >= 0 and lista_estudiantes[i]["apellido"] > key["apellido"]:
-            lista_estudiantes[i + 1] = lista_estudiantes[i]
-            i = i - 1
-        
-        lista_estudiantes[i + 1] = key
-    
-    return lista_estudiantes
+        if indice == len(lista_estudiantes) - 1:
+            lista_estudiantes.append(nuevo_estudiante)
 
 
 
 #función eliminar_estudiante para eliminar estudiante
 def eliminar_estudiante(lista_estudiantes):
-    apellido = input("Ingrese el apellido del estudiante a eliminar: ")
+    apellido = input("\nIngrese el apellido del estudiante a eliminar: ")
     izquierda = 0
     derecha = len(lista_estudiantes) - 1
 
@@ -54,8 +57,7 @@ def eliminar_estudiante(lista_estudiantes):
             estudiante = lista_estudiantes[medio]
             confirmacion = input(f"¿Deseás eliminar a {estudiante['nombre']} {estudiante['apellido']} (s/n)? ").lower()
             if confirmacion == "s":
-                lista_estudiantes.pop(medio)
-                ordenamiento_insercion(lista_estudiantes) 
+                lista_estudiantes.pop(medio) 
                 print("Estudiante eliminado correctamente.")
             else:
                 print("Operación cancelada.")
@@ -67,7 +69,7 @@ def eliminar_estudiante(lista_estudiantes):
 
     print(f"No se encontró ningún estudiante con el apellido '{apellido}'.")
 
-#Búsqueda binaria por apellido (requiere la lista ordenada por apellido) -- usar busqueda binaria es la mas eficiente en listas ordenadas
+#Búsqueda binaria por apellido (requiere la lista ordenada por apellido)
 def busqueda_binaria(lista_estudiantes, apellido):
     izquierda = 0
     derecha = len(lista_estudiantes) - 1
