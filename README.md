@@ -10,6 +10,10 @@ Este proyecto fue desarrollado como parte del trabajo práctico integrador de la
 - Ordenamiento por nota o nombre.
 - Cálculo de estadísticas como promedio, aprobados y desaprobados.
 
+
+## Link al video de youtube
+[Trabajo Practico Integrador Programacion 1 - Gonzalez Erika Guardia Karen](https://youtu.be/n0I70GtIZg8) 
+
 ## Instrucciones de Uso
 
 1. **Requisitos previos:**
