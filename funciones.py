@@ -18,7 +18,7 @@ def listar_estudiantes(lista_estudiantes):
 #Función para agregar estudiante
 def agregar_estudiante(lista_estudiantes):
     nuevo_estudiante = crear_estudiante()
-    ordenamiento_insercion(lista_estudiantes, nuevo_estudiante)
+    insercion_ordenada(lista_estudiantes, nuevo_estudiante)
 
 
 def crear_estudiante():
@@ -28,7 +28,7 @@ def crear_estudiante():
     estudiante = {"nombre": nombre, "apellido": apellido, "nota": nota}
     return estudiante
 
-def ordenamiento_insercion(lista_estudiantes, nuevo_estudiante):
+def insercion_ordenada(lista_estudiantes, nuevo_estudiante):
     apellido_nuevo_estudiante = nuevo_estudiante['apellido']
 
     for indice in range(len(lista_estudiantes)):
