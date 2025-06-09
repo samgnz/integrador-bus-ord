@@ -42,7 +42,7 @@ Este proyecto fue desarrollado como parte del trabajo práctico integrador de la
 
     8: Salir del programa.
 
-## Reflaxiones del Equipo
+## Reflexiones del Equipo
 Este proyecto representó una excelente oportunidad para poner en práctica los conocimientos adquiridos durante la materia Programación I. Nos permitió poner en práctica conceptos clave como:
 
     Estructuras de control y repetición.
